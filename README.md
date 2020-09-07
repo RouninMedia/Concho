@@ -15,6 +15,54 @@ HTML markup snippets conditionally echoed by **Concho** often contain data extra
 
 ________
 
+## Working Example of Concho
+
+```
+$SiteManifest = [
+
+  'Global' => [
+
+    'Test' => [
+
+      'Path' => 'Test Successful'
+    ]
+  ]
+];
+
+$PageManifest = [
+    
+    'Asset' => [
+      
+      'Preload' => TRUE,
+      'Type' => 'font/woff2',
+      'As' => 'font',
+      'URL' => '/.assets/theme/elements/fonts/scotia-beauty.woff2',
+    ],
+    
+    'Impressum' => [
+        
+        'Credits' => [
+            
+            'Web' => [
+                
+                'Active' => TRUE,
+                
+                'Author' => [
+                    
+                    'Name' => 'Scotia Beauty'
+                ]
+            ]
+        ]
+    ]
+];
+
+echo concho('<meta name="author" content="|Impressum::Credits::Web::Author::Name|" />'."\n", ['Impressum::Credits::Web::Active'], [$PageManifest]);
+echo concho('<meta name="author" content="|1::Impressum::Credits::Web::Author::Name|" />'."\n\n", ['1::Impressum::Credits::Web::Active', (5 > 4)], [[], $PageManifest]);
+echo concho('<link rel="preload" href="|Asset::URL|" as="|Asset::As|" type="|Asset::Type|" '.concho('crossorigin="anonymous" ',  ['Asset::As`===`font', 'Asset::As`===`fontt'], [$PageManifest], 'OR').'/>'."\n\n", [], [$PageManifest]);
+echo concho('<p data-type="|1::Asset::Type|" data-test="Attribute |0::Global::Test::Path|">Element |0::Global::Test::Path|</p>', [], [$SiteManifest, $PageManifest]);
+```
+________
+
 ## Concho Functions
 
 There are **three** Concho Functions:
