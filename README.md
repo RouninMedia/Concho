@@ -25,7 +25,7 @@ There are **three** Concho Functions:
  
  See below:
  
- ### concho()
+ ### `concho()`
  ```
  function concho($Markup, $Conditions = [], $Sources = [[]], $Logic = 'AND') {
   
@@ -69,7 +69,7 @@ There are **three** Concho Functions:
 }
  ```
  
- ### conchoParse()
+ ### `conchoParse()`
  ```
  function conchoParse($Pieces, $Sources) {
 
@@ -123,7 +123,7 @@ There are **three** Concho Functions:
 }
  ```
  
- ### conchoQuery()
+ ### `conchoQuery()`
  ```
  function conchoQuery($Query, $Source) {
 
