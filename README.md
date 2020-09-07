@@ -15,6 +15,50 @@ HTML markup snippets conditionally echoed by **Concho** often contain data extra
 
 ________
 
+## Concho ParseStrings
+
+When the `concho()` function is invoked, it may optionally declare one or more PHP Associative Arrays as `Data Sources`.
+
+Any `value` may be easily extracted from a `Data Source` using **Concho ParseString** syntax.
+
+eg. `Impressum::Credits::Web::Author::Name`
+
+A **Concho ParseString** is a string which, when parsed, describes the location of any `value` within a PHP Associative Array.
+
+For instance, the **ParseString** above, entirely straightforwardly, describes the following:
+
+`$Data_Source['Impressum']['Credits']['Web']['Author']['Name']`
+
+**Concho ParseStrings** may appear in three different contexts in the `concho()` function:
+
+ - in the **HTML** to be conditionally echoed, surrounded by pipes, like this: `|Impressum::Credits::Web::Author::Name|`
+ - as an entire Concho Condition, where the `value` the **ParseString** describes is a `boolean`, like this: `Impressum::Credits::Web`
+ - as part of a Concho Condition, where the Concho Condition is a **Comparison Equation**, like this: `Asset::As``===``font`
+
+________
+
+## Concho ParseString Prefixes
+
+^^^ A Concho parseString has a default prefix of 0
+    
+    That is to say: both the prefixed
+
+      0::Impressum::Credits::Web::Active
+
+    and the unprefixed
+
+      Impressum::Credits::Web::Active
+
+    are the same
+
+Higher prefixes must be explicitly stated:
+
+  1::Impressum::Credits::Web::Active
+  2::Impressum::Credits::Web::Active
+  3::Impressum::Credits::Web::Active etc.
+
+________
+
 ## Working Example of Concho
 
 ```
@@ -65,7 +109,7 @@ ________
 
 ## Concho Functions
 
-There are **three** Concho Functions:
+There are **three** functions which make up **Concho**:
 
  - `concho()`
  - `conchoParse()`
@@ -197,3 +241,10 @@ There are **three** Concho Functions:
   return $Query_Response;
 }
  ```
+_______
+
+i) Think through: *I DO like the idea of including and running a single Scaffold_Head() function in the Main Scaffold*
+ii) Add concho() to Github
+iii) Set up prototype Scaffold with concho()
+
+3) TIME TEST
