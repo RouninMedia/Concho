@@ -1,5 +1,5 @@
 # Concho
-Concho is an Ashiva shorthand for ***con**ditionally e**cho**-ing* snippets of HTML markup.
+Concho is an Ashiva shorthand for ***con**ditionally* *e**cho**-ing* snippets of HTML markup.
 In this case *snippets of HTML markup* usually refers to:
 
  - lines of HTML; or
