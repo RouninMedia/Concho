@@ -244,8 +244,6 @@ There are **three** functions which make up **Concho**:
  ```
 _______
 
-i) Think through: *I DO like the idea of including and running a single Scaffold_Head() function in the Main Scaffold*
-ii) Add concho() to Github
-iii) Set up prototype Scaffold with concho()
-
-3) TIME TEST
+- Think through: *I DO like the idea of including and running a single Scaffold_Head() function in the Main Scaffold*
+- Set up prototype Scaffold with `concho()`
+- TIME TEST new Scaffold with `concho()`
