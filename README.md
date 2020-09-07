@@ -32,8 +32,8 @@ For instance, the **ParseString** above, entirely straightforwardly, describes t
 **Concho ParseStrings** may appear in three different contexts in the `concho()` function:
 
  - in the **HTML** to be conditionally echoed, surrounded by pipes, like this: `|Impressum::Credits::Web::Author::Name|`
- - as an entire Concho Condition, where the `value` the **ParseString** describes is a `boolean`, like this: `Impressum::Credits::Web`
- - as part of a Concho Condition, where the Concho Condition is a **Comparison Equation**, like this: ``Asset::As`===`font``
+ - as an entire Concho Condition, where the `value` the **ParseString** describes is a `boolean`, like this: `'Impressum::Credits::Web'`
+ - as part of a Concho Condition, where the Concho Condition is a **Comparison Equation**, like this: ``'Asset::As`===`font'``
 
 ________
 
