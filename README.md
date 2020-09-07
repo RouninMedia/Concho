@@ -168,7 +168,7 @@ There are **three** functions which make up **Concho**:
 
   for ($i = 0; $i < count($Pieces); $i++) {
 
-    // PARSE COMPARISON OPERATOR EQUATIONS
+    // PARSE COMPARISON EQUATION CONDITIONS
     if (strpos($Pieces[$i], '`') !== FALSE) {
 
       $Equation_Parts = explode('`', $Pieces[$i]);
