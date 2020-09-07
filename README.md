@@ -127,17 +127,12 @@ There are **three** Concho Functions:
  ```
  function conchoQuery($Query, $Source) {
 
-  $Source_Index = 0;
   $Query_Response = $Source;
   $Query = explode('::', $Query);
-
-  if (is_numeric($Query[0])) {
-
-    $Source_Index = array_shift($Query);
-  }
+  $Source_Index = (is_numeric($Query[0])) ? array_shift($Query) : 0;
 
   for ($j = 0; $j < count($Query); $j++) {
-          
+  
     if (!isset($Query_Response[$Query[$j]])) {
         
       return '<!-- Ashiva Console :: Invalid Query Step ['.$Query[$j].'] in Source '.$Source_Index.' -->';
