@@ -17,7 +17,7 @@ ________
 
 ## Concho ParseStrings
 
-When the `concho()` function is invoked, it may optionally declare one or more PHP Associative Arrays as `Data Sources`.
+When the `concho()` function is invoked, it may, optionally, reference one or more PHP Associative Array `Data Sources`.
 
 Any `value` may be easily extracted from a `Data Source` using **Concho ParseString** syntax.
 
@@ -39,23 +39,24 @@ ________
 
 ## Concho ParseString Prefixes
 
-^^^ A Concho parseString has a default prefix of 0
-    
-    That is to say: both the prefixed
+All **ParseStrings** have a numerical prefix, either implicit or explicit.
 
-      0::Impressum::Credits::Web::Active
+So far, we have only seen **ParseStrings** without explicit numerical prefixes - these all have an implicit or default prefix of `0`.
 
-    and the unprefixed
+What this means in practice is that unprefixed **ParseStrings** are identical to `0`-prefixed **ParseStrings**:
 
-      Impressum::Credits::Web::Active
+ - `0::Impressum::Credits::Web::Active`
+ - `Impressum::Credits::Web::Active`
 
-    are the same
+The two **ParseStrings** immediately above are identical.
 
-Higher prefixes must be explicitly stated:
+Numerical prefixes higher than `0` **must** be explicitly stated:
 
-  1::Impressum::Credits::Web::Active
-  2::Impressum::Credits::Web::Active
-  3::Impressum::Credits::Web::Active etc.
+ - `1::Impressum::Credits::Web::Active`
+ - `2::Impressum::Credits::Web::Active`
+ - `3::Impressum::Credits::Web::Active` etc.
+ 
+The numerical prefix references the **Index** of the `Data Source`, the **ParseString** applies to.
 
 ________
 
