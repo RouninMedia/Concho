@@ -3,12 +3,13 @@
 
 In this case *snippets of HTML markup* usually refers to:
 
- - lines of HTML; or
+ - lines of HTML
  - single HTML element attributes
 
 but can also mean:
 
  - `ashivaModule HTML Components`
+ - `ashivaModule SVG Components`
 
 HTML markup snippets conditionally echoed by **Concho** often contain data extracted from an Ashiva `PageManifest` or `SiteManifest`.
 
