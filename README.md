@@ -81,8 +81,13 @@ There are **three** Concho Functions:
       $Equation_Parts = explode('`', $Pieces[$i]);
       
       if (count($Equation_Parts) <> 3) {
-          
-        $Pieces[$i] = "\n".'<!-- Ashiva Console: Comparison Condition ( '.implode('`', $Equation_Parts).' ) cannot be parsed -->';
+        
+        $Pieces[$i] = '';
+        $Pieces[$i] .= "\n";
+        $Pieces[$i] .= '<!-- Ashiva Console: Comparison Condition ';
+        $Pieces[$i] .= '( '.implode('`', $Equation_Parts).' ) ';
+        $Pieces[$i] .= 'cannot be parsed -->';
+        
         continue;
       }
       
