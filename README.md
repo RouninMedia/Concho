@@ -120,19 +120,19 @@ There are **three** functions which make up **Concho**:
  
  See below:
  
- ### `concho($Markup, $Sources, $Conditions = [], $Logic = 'AND')`
+ ### `concho($Markup, $Data_Sources, $Conditions = [], $Logic = 'AND')`
  ```
- function concho($Markup, $Sources, $Conditions = [], $Logic = 'AND') {
+ function concho($Markup, $Data_Sources, $Conditions = [], $Logic = 'AND') {
   
   if (strpos($Markup, '::') !== FALSE) {
 
     $Markup = explode('|', $Markup);
-    $Markup = conchoParse($Markup, $Sources);
+    $Markup = conchoParse($Markup, $Data_Sources);
     $Markup = implode('', $Markup);
   }
   
   // PARSE CONDITIONS
-  $Conditions = conchoParse($Conditions, $Sources);
+  $Conditions = conchoParse($Conditions, $Data_Sources);
   
   // CYCLE THROUGH BOOLEAN CONDITIONS
   for ($i = 0; $i < count($Conditions); $i++) {
@@ -164,9 +164,9 @@ There are **three** functions which make up **Concho**:
 }
  ```
  
- ### `conchoParse($Pieces, $Sources)`
+ ### `conchoParse($Pieces, $Data_Sources)`
  ```
- function conchoParse($Pieces, $Sources) {
+ function conchoParse($Pieces, $Data_Sources) {
 
   for ($i = 0; $i < count($Pieces); $i++) {
 
@@ -191,8 +191,8 @@ There are **three** functions which make up **Concho**:
         if (strpos($Equation_Parts[$j], '::') !== FALSE) {
 
           $First_Step = explode('::', $Pieces[$i])[0];
-          $Source = (is_numeric($First_Step)) ? $Sources[$First_Step] : $Sources[0];
-          $Equation_Parts[$j] = conchoQuery($Equation_Parts[$j], $Source);
+          $Data_Source = (is_numeric($First_Step)) ? $Data_Sources[$First_Step] : $Data_Sources[0];
+          $Equation_Parts[$j] = conchoQuery($Equation_Parts[$j], $Data_Source);
         }
       }
       
@@ -214,8 +214,8 @@ There are **three** functions which make up **Concho**:
     else if (strpos($Pieces[$i], '::') !== FALSE) {
 
       $First_Step = explode('::', $Pieces[$i])[0];
-      $Source = (is_numeric($First_Step)) ? $Sources[$First_Step] : $Sources[0];
-      $Pieces[$i] = conchoQuery($Pieces[$i], $Source);
+      $Data_Source = (is_numeric($First_Step)) ? $Data_Sources[$First_Step] : $Data_Sources[0];
+      $Pieces[$i] = conchoQuery($Pieces[$i], $Data_Source);
     }
   }
 
@@ -223,19 +223,19 @@ There are **three** functions which make up **Concho**:
 }
  ```
  
- ### `conchoQuery($Query, $Source)`
+ ### `conchoQuery($Query, $Data_Source)`
  ```
- function conchoQuery($Query, $Source) {
+ function conchoQuery($Query, $Data_Source) {
 
-  $Query_Response = $Source;
+  $Query_Response = $Data_Source;
   $Query = explode('::', $Query);
-  $Source_Index = (is_numeric($Query[0])) ? array_shift($Query) : 0;
+  $Data_Source_Index = (is_numeric($Query[0])) ? array_shift($Query) : 0;
 
   for ($j = 0; $j < count($Query); $j++) {
   
     if (!isset($Query_Response[$Query[$j]])) {
         
-      return '<!-- Ashiva Console :: Invalid Query Step ['.$Query[$j].'] in Source '.$Source_Index.' -->';
+      return '<!-- Ashiva Console :: Invalid Query Step ['.$Query[$j].'] in Source '.$Data_Source_Index.' -->';
     }
       
     $Query_Response = $Query_Response[$Query[$j]];     
