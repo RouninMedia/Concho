@@ -29,11 +29,11 @@ For instance, the **ParseString** above, entirely straightforwardly, describes t
 
 `$Data_Source['Impressum']['Credits']['Web']['Author']['Name']`
 
-**Concho ParseStrings** may appear in three different contexts in the `concho()` function:
+**Concho ParseStrings** may appear in **three** different contexts in the `concho()` function:
 
- - in the **HTML** to be conditionally echoed, surrounded by pipes, like this: `|Impressum::Credits::Web::Author::Name|`
- - as an *entire **Concho Condition***, where the `value` the **ParseString** describes is a `boolean`, like this: `'Impressum::Credits::Web'`
- - as *part* of a ***Concho Condition***, where the Concho Condition is a **Comparison**, like this: ``'Asset::As`===`font'``
+ 1. in the **HTML** to be conditionally echoed, surrounded by pipes, like this: `|Impressum::Credits::Web::Author::Name|`
+ 2. as an *entire **Concho Condition***, where the `value` the **ParseString** describes is a `boolean`, like this: `'Impressum::Credits::Web'`
+ 3. as *part* of a ***Concho Condition***, where the Concho Condition is a **Comparison**, like this: ``'Asset::As`===`font'``
 
 ________
 
