@@ -11,7 +11,7 @@ but can also mean:
  - `danis3hModule HTML Components`
  - `danis3hModule SVG Components`
 
-HTML markup snippets conditionally echoed by **Concho** often contain data extracted from an Ashiva `PageManifest` or `SiteManifest`.
+HTML markup snippets conditionally echoed by **Concho** usually contain data extracted from an Ashiva `PageManifest` or `SiteManifest`.
 
 ________
 
