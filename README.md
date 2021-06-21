@@ -8,8 +8,8 @@ In this case *snippets of HTML markup* usually refers to:
 
 but can also mean:
 
- - `ashivaModule HTML Components`
- - `ashivaModule SVG Components`
+ - `danis3hModule HTML Components`
+ - `danis3hModule SVG Components`
 
 HTML markup snippets conditionally echoed by **Concho** often contain data extracted from an Ashiva `PageManifest` or `SiteManifest`.
 
