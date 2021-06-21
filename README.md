@@ -101,8 +101,10 @@ $PageManifest = [
     ]
 ];
 
+$Other_Source = [];
+
 echo concho('<meta name="author" content="|Impressum::Credits::Web::Author::Name|" />'."\n", [$PageManifest], ['Impressum::Credits::Web::Active']);
-echo concho('<meta name="author" content="|1::Impressum::Credits::Web::Author::Name|" />'."\n\n", [[], $PageManifest], ['1::Impressum::Credits::Web::Active', (5 > 4)]);
+echo concho('<meta name="author" content="|1::Impressum::Credits::Web::Author::Name|" />'."\n\n", [$Other_Source, $PageManifest], ['1::Impressum::Credits::Web::Active', (5 > 4)]);
 echo concho('<link rel="preload" href="|Asset::URL|" as="|Asset::As|" type="|Asset::Type|" '.concho('crossorigin="anonymous" ',  ['Asset::As`===`font', 'Asset::As`===`fontt'], [$PageManifest], 'OR').'/>'."\n\n", [$PageManifest], []);
 echo concho('<p data-type="|1::Asset::Type|" data-test="Attribute |0::Global::Test::Path|">Element |0::Global::Test::Path|</p>', [$SiteManifest, $PageManifest], []);
 ```
