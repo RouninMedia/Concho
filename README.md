@@ -118,9 +118,9 @@ There are **three** functions which make up **Concho**:
  
  See below:
  
- ### `concho($Markup, $Conditions = [], $Sources = [[]], $Logic = 'AND')`
+ ### `concho($Markup, $Sources, $Conditions = [], $Logic = 'AND')`
  ```
- function concho($Markup, $Conditions = [], $Sources = [[]], $Logic = 'AND') {
+ function concho($Markup, $Sources, $Conditions = [], $Logic = 'AND') {
   
   if (strpos($Markup, '::') !== FALSE) {
 
