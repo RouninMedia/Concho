@@ -3,8 +3,13 @@
 
 Concho statements are simply shorthand representations of ternary echo statements in raw PHP. The two statements below are the same:
 
- - **Ternary** `echo` **statement:** `echo (($Impressum['Credits']['Active'] === TRUE) && ($Impressum['Credits']['Web']['Active'] === TRUE)) ? '<meta property="author" content="'.$Impressum['Credits']['Web']['Author']['Name'].'" />'."\n" : '';`
- - `concho` **statement:** `echo concho('<meta name="author" content="|Credits::Web::Author::Name|" />'."\n", [$Impressum], ['Credits::Active', 'Credits::Web::Active']);`
+ - **Ternary** `echo` **statement:**
+
+       echo (($Impressum['Credits']['Active'] === TRUE) && ($Impressum['Credits']['Web']['Active'] === TRUE)) ? '<meta property="author" content="'.$Impressum['Credits']['Web']['Author']['Name'].'" />'."\n" : '';
+    
+ - `concho` **statement:** 
+
+       echo concho('<meta name="author" content="|Credits::Web::Author::Name|" />'."\n", [$Impressum], ['Credits::Active', 'Credits::Web::Active']);`
 
 A **Concho** statement conditionally echoes:
 
