@@ -3,8 +3,12 @@
 
 In this case *snippets of HTML markup* usually refers to:
 
- - lines of HTML
  - single HTML element attributes
+ - single lines of HTML
+
+or:
+
+ - blocks of HTML
 
 but can also mean:
 
