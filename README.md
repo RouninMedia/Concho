@@ -1,7 +1,9 @@
 # Concho
 **Concho** is an Ashiva shorthand for ***con**ditionally* *e**cho**-ing* snippets of HTML markup.
 
-Concho statements are simply shorthand representations of ternary echo statements in raw PHP. The two statements below are the same:
+Concho statements are simply shorthand representations of ternary echo statements in raw PHP.
+
+Hence, the two statements below are the same:
 
  - **Ternary** `echo` **statement:**
 
