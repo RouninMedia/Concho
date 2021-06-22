@@ -9,7 +9,9 @@ Concho statements are simply shorthand representations of ternary echo statement
     
  - `concho` **statement:** 
 
-       echo concho('<meta name="author" content="|Credits::Web::Author::Name|" />'."\n", [$Impressum], ['Credits::Active', 'Credits::Web::Active']);`
+       echo concho('<meta name="author" content="|Credits::Web::Author::Name|" />'."\n",
+                   [$Impressum], ['Credits::Active',
+                   'Credits::Web::Active']);`
 
 A **Concho** statement conditionally echoes:
 
