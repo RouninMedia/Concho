@@ -8,7 +8,7 @@ Hence, the two statements below are the same:
  - **Ternary** `echo` **statement:**
 
        echo (($Impressum['Credits']['Active'] === TRUE) && ($Impressum['Credits']['Web']['Active'] === TRUE))
-         ? '<meta property="author" content="'.$Impressum['Credits']['Web']['Author']['Name'].'" />'."\n"
+         ? '<meta name="author" content="'.$Impressum['Credits']['Web']['Author']['Name'].'" />'."\n"
          : '';
     
  - `concho` **statement:** 
