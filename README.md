@@ -154,7 +154,7 @@ There are **three** functions which make up **Concho**:
   }
   
   // PARSE CONDITIONS
-  $Conditions = conchoParse($Conditions, $Data_Sources);
+  $Conditions = conchoParse($Conditions, $Data_Sources, TRUE);
   
   // CYCLE THROUGH BOOLEAN CONDITIONS
   for ($i = 0; $i < count($Conditions); $i++) {
@@ -186,23 +186,23 @@ There are **three** functions which make up **Concho**:
 }
  ```
  
- ### `conchoParse($Pieces, $Data_Sources)`
+ ### `conchoParse($Pieces, $Data_Sources, $ParseConditions = FALSE)`
  ```
  function conchoParse($Pieces, $Data_Sources) {
 
   for ($i = 0; $i < count($Pieces); $i++) {
 
     // PARSE COMPARISON EQUATION CONDITIONS
-    if (strpos($Pieces[$i], '`') !== FALSE) {
+    if (($ParseConditions === TRUE) && (strpos($Pieces[$i], ' ') !== FALSE)) {
 
-      $Equation_Parts = explode('`', $Pieces[$i]);
+      $Equation_Parts = explode(' ', $Pieces[$i]);
       
       if (count($Equation_Parts) <> 3) {
         
         $Pieces[$i] = '';
         $Pieces[$i] .= "\n";
         $Pieces[$i] .= '<!-- Ashiva Console: Comparison Condition ';
-        $Pieces[$i] .= '( '.implode('`', $Equation_Parts).' ) ';
+        $Pieces[$i] .= '( '.implode(' ', $Equation_Parts).' ) ';
         $Pieces[$i] .= 'cannot be parsed -->';
         
         continue;
