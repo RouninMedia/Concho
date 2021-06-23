@@ -216,6 +216,9 @@ There are **three** functions which make up **Concho**:
           $Data_Source = (is_numeric($First_Step)) ? $Data_Sources[$First_Step] : $Data_Sources[0];
           $Equation_Parts[$j] = conchoQuery($Equation_Parts[$j], $Data_Source);
         }
+       
+        if (strtolower($Equation_Parts[$j]) === 'true') {$Equation_Parts[$j] = TRUE;}
+        if (strtolower($Equation_Parts[$j]) === 'false') {$Equation_Parts[$j] = FALSE;}
       }
       
       switch ($Equation_Parts[1]) {
