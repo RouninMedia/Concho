@@ -188,7 +188,7 @@ There are **three** functions which make up **Concho**:
  
  ### `conchoParse($Pieces, $Data_Sources, $ParseConditions = FALSE)`
  ```
- function conchoParse($Pieces, $Data_Sources) {
+ function conchoParse($Pieces, $Data_Sources, $ParseConditions = FALSE) {
 
   for ($i = 0; $i < count($Pieces); $i++) {
 
