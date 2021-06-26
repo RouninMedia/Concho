@@ -272,7 +272,7 @@ There are **three** functions which make up **Concho**:
  ```
 _______
 
-## An example of using Concho syntax (Before: vs After:)
+## An example of using Concho syntax *(Before: vs After:)*
 
 ### Before:
 ```
