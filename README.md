@@ -272,6 +272,37 @@ There are **three** functions which make up **Concho**:
  ```
 _______
 
+## An example of using Concho syntax - before vs after
+
+### Before:
+```
+// LINK PRELOADS
+if (($Document_Build['Resource_Hints']['Preload']['Active'] === TRUE) {
+  $Link_Preloads = '';
+  for ($i = 0; $i < count(($Document_Build['Resource_Hints']['Preload']['Resources']); $i++) {
+    $Resource = ($Document_Build['Resource_Hints']['Preload']['Resources'][$i];
+    if ($Resource['Active'] === TRUE) {
+      $Link_Preloads .= '<link rel="preload" href="'.$Resource['URL'].'" as="'.$Resource['As'].'" type="'.$Resource['Type'].'"';
+      if ($Resource['As'] === 'font') {
+        $Link_Preloads .= ' crossorigin="anonymous"';
+      }
+      $Link_Preloads .= ' />'."\n";
+    }
+  }
+  echo $Link_Preloads."\n";
+}
+```
+
+### After:
+```
+// LINK PRELOADS
+foreach ($Document_Build['Resource_Hints']['Preload']['Resources'] as $Resource_Index => $Resource) { 
+  echo concho('<link rel="preload" href="|0::URL|" as="|0::As|" type="|0::Type|" />'."\n", [$Resource, $Document_Build], ['Resource_Hints::Preload::Active', '0::As !== font']);
+  echo concho('<link rel="preload" href="|0::URL|" as="|0::As|" type="|0::Type|" crossorigin="anonymous" />'."\n", [$Resource, $Document_Build], ['Resource_Hints::Preload::Active', '0::As === font']);
+}
+```
+_______
+
 - Think through: *I DO like the idea of including and running a single Scaffold_Head() function in the Main Scaffold*
 - Set up prototype Scaffold with `concho()`
 - TIME TEST new Scaffold with `concho()`
