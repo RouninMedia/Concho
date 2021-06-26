@@ -204,6 +204,7 @@ There are **three** functions which make up **Concho**:
         $Pieces[$i] .= '<!-- Ashiva Console: Comparison Condition ';
         $Pieces[$i] .= '( '.implode(' ', $Equation_Parts).' ) ';
         $Pieces[$i] .= 'cannot be parsed -->';
+        $Pieces[$i] .= "\n";
         
         continue;
       }
@@ -260,7 +261,7 @@ There are **three** functions which make up **Concho**:
   
     if (!isset($Query_Response[$Query[$j]])) {
         
-      return '<!-- Ashiva Console :: Invalid Query Step ['.$Query[$j].'] in Source '.$Data_Source_Index.' -->';
+      return "\n".'<!-- Ashiva Console :: Invalid Query Step ['.$Query[$j].'] in Source '.$Data_Source_Index.' -->'."\n";
     }
       
     $Query_Response = $Query_Response[$Query[$j]];     
