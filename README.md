@@ -253,29 +253,35 @@ There are **three** functions which make up **Concho**:
  ```
  function conchoQuery($Query, $Data_Source) {
 
-  $Query_Response = $Data_Source;
-
-  // EXTRACT INITIAL TEXT-TRANSFORM FUNCTION, IF PRESENT
-  if (strpos($Query, '___')) {   
-    $Query_Array = explode('___', $Query);
-    $Query_Function = $Query_Array[0];
-    $Query = $Query_Array[1];
-  }
+   $Query_Functions = [];
+   $Query_Response = $Data_Source;
+ 
+   // IDENTIFY AND EXTRACT FUNCTIONS, IF PRESENT
+   if (strpos($Query, '(')) {  
+     $Query_Array = explode('(', $Query);
+     $Query = str_replace(')', '', $Query_Array[(count($Query_Array) - 1)]);
+     $Query_Functions = array_reverse(array_slice($Query_Array, 0, (count($Query_Array) - 1)));
+   }
   
-  $Query = explode('::', $Query);
-  $Data_Source_Index = (is_numeric($Query[0])) ? array_shift($Query) : 0;
+   $Query = explode('::', $Query);
+   $Data_Source_Index = (is_numeric($Query[0])) ? array_shift($Query) : 0;
 
-  for ($j = 0; $j < count($Query); $j++) {
+   for ($j = 0; $j < count($Query); $j++) {
   
-    if (!isset($Query_Response[$Query[$j]])) {
-        
-      return "\n".'<!-- Ashiva Console :: Invalid Query Step ['.$Query[$j].'] in Source '.$Data_Source_Index.' -->'."\n";
-    }
+     if (!isset($Query_Response[$Query[$j]])) {   
+       return "\n".'<!-- Ashiva Console :: Invalid Query Step ['.$Query[$j].'] in Source '.$Data_Source_Index.' -->'."\n";
+     }
       
-    $Query_Response = $Query_Response[$Query[$j]];     
-  }
+     $Query_Response = $Query_Response[$Query[$j]];     
+   }
   
-  return (isset($Query_Function)) ? $Query_Function($Query_Response) : $Query_Response;
+   // APPLY FUNCTIONS
+   while (count($Query_Functions) > 0) {    
+     $Query_Response = $Query_Functions[0]($Query_Response);
+     array_shift($Query_Functions);
+   }
+ 
+   return $Query_Response;
 }
  ```
 _______
