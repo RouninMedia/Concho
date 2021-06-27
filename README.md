@@ -254,6 +254,14 @@ There are **three** functions which make up **Concho**:
  function conchoQuery($Query, $Data_Source) {
 
   $Query_Response = $Data_Source;
+
+  // ISOLATE ANY TEXT-TRANSFORM FUNCTION
+  if (strpos($Query, '___')) {   
+    $Query_Array = explode('___', $Query);
+    $Query_Function = $Query_Array[0];
+    $Query = $Query_Array[1];
+  }
+  
   $Query = explode('::', $Query);
   $Data_Source_Index = (is_numeric($Query[0])) ? array_shift($Query) : 0;
 
@@ -267,7 +275,7 @@ There are **three** functions which make up **Concho**:
     $Query_Response = $Query_Response[$Query[$j]];     
   }
   
-  return $Query_Response;
+  return (isset($Query_Function)) ? $Query_Function($Query_Response) : $Query_Response;
 }
  ```
 _______
