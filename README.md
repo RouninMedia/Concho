@@ -255,7 +255,7 @@ There are **three** functions which make up **Concho**:
 
   $Query_Response = $Data_Source;
 
-  // ISOLATE ANY TEXT-TRANSFORM FUNCTION
+  // EXTRACT INITIAL TEXT-TRANSFORM FUNCTION, IF PRESENT
   if (strpos($Query, '___')) {   
     $Query_Array = explode('___', $Query);
     $Query_Function = $Query_Array[0];
