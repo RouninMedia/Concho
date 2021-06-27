@@ -146,7 +146,7 @@ There are **three** functions which make up **Concho**:
  ```
  function concho($Markup, $Data_Sources, $Conditions = [], $Logic = 'AND') {
   
-  if (strpos($Markup, '::') !== FALSE) {
+  if (strpos($Markup, '|') !== FALSE) {
     $Markup = explode('|', $Markup);
     $Markup = conchoParse($Markup, $Data_Sources);
     $Markup = implode('', $Markup);
