@@ -240,7 +240,7 @@ There are **three** functions which make up **Concho**:
     else if (strpos($Pieces[$i], '::') !== FALSE) {
 
       $First_Step = explode('::', $Pieces[$i])[0];
-      $Data_Source = (is_numeric($First_Step)) ? $Data_Sources[$First_Step] : $Data_Sources[0];
+      $Data_Source = (is_numeric($First_Step)) ? $Data_Sources[intval($First_Step)] : $Data_Sources[0];
       $Pieces[$i] = conchoQuery($Pieces[$i], $Data_Source);
     }
   }
