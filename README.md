@@ -28,7 +28,7 @@ or:
 
  - blocks of HTML
 
-and *also*:
+**Concho** *also* introduces a *Conditional String Syntax* which is used elsewhere in `['Attributes' => ['Conditional' => TRUE]]` observed by:
 
  - `danis3hModule HTML Components`
  - `danis3hModule SVG Components`
