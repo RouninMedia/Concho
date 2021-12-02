@@ -160,7 +160,7 @@ There are **three** functions which make up **Concho**:
   for ($i = 0; $i < count($Conditions); $i++) {
 
     // CONDITION IS AN ASHIVA CONSOLE MESSAGE
-    if (!is_bool($Conditions[$i])) {
+    if (strpos($Conditions[$i], '<!-- Ashiva Console:') !== FALSE) {
       
       $Markup = $Conditions[$i];
       $Conditions[$i] = TRUE;
