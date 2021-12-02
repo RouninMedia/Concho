@@ -193,9 +193,9 @@ There are **three** functions which make up **Concho**:
   for ($i = 0; $i < count($Pieces); $i++) {
 
     // PARSE COMPARISON EQUATION CONDITIONS
-    if (($ParseConditions === TRUE) && (strpos($Pieces[$i], ' ') !== FALSE)) {
+    $Equation_Parts = explode(' ', $Pieces[$i]);
 
-      $Equation_Parts = explode(' ', $Pieces[$i]);
+    if (($ParseConditions === TRUE) && (count(array_intersect(['==', '===', '!=', '<>', '!==', '>', '<', '>=', '<=', '<=>'], $Equation_Parts)) > 0)) {
       
       if (count($Equation_Parts) <> 3) {
         
