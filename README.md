@@ -14,7 +14,7 @@ Hence, the two statements below are the same:
  - `concho` **statement:** 
 
        echo concho(
-         '<meta name="author" content="|Credits::Web::Author::Name|" />'."\n",
+         '<meta name="author" content="¦¦Credits::Web::Author::Name¦¦" />'."\n",
          [$Impressum],
          ['Credits::Active', 'Credits::Web::Active']
        );
@@ -53,7 +53,7 @@ For instance, the **ParseString** above, entirely straightforwardly, describes t
 
 **Concho ParseStrings** may appear in **three** different contexts in the `concho()` function:
 
- 1. in the **HTML** to be conditionally echoed, surrounded by pipes, like this: `|Impressum::Credits::Web::Author::Name|`
+ 1. in the **HTML** to be conditionally echoed, surrounded by pipes, like this: `¦¦Impressum::Credits::Web::Author::Name¦¦`
  2. as an *entire **Concho Condition***, where the `value` the **ParseString** describes is a `boolean`, like this: `'Impressum::Credits::Web'`
  3. as *part* of a ***Concho Condition***, where the Concho Condition is a **Comparison**, like this: ``'Asset::As`===`font'``
 
@@ -125,10 +125,10 @@ $PageManifest = [
 
 $Other_Source = [];
 
-echo concho('<meta name="author" content="|Impressum::Credits::Web::Author::Name|" />'."\n", [$PageManifest], ['Impressum::Credits::Web::Active']);
-echo concho('<meta name="author" content="|1::Impressum::Credits::Web::Author::Name|" />'."\n\n", [$Other_Source, $PageManifest], ['1::Impressum::Credits::Web::Active', (5 > 4)]);
-echo concho('<link rel="preload" href="|Asset::URL|" as="|Asset::As|" type="|Asset::Type|" '.concho('crossorigin="anonymous" ',  ['Asset::As`===`font', 'Asset::As`===`fontt'], [$PageManifest], 'OR').'/>'."\n\n", [$PageManifest], []);
-echo concho('<p data-type="|1::Asset::Type|" data-test="Attribute |0::Global::Test::Path|">Element |0::Global::Test::Path|</p>', [$SiteManifest, $PageManifest], []);
+echo concho('<meta name="author" content="¦¦Impressum::Credits::Web::Author::Name¦¦" />'."\n", [$PageManifest], ['Impressum::Credits::Web::Active']);
+echo concho('<meta name="author" content="¦¦1::Impressum::Credits::Web::Author::Name¦¦" />'."\n\n", [$Other_Source, $PageManifest], ['1::Impressum::Credits::Web::Active', (5 > 4)]);
+echo concho('<link rel="preload" href="¦¦Asset::URL¦¦" as="¦¦Asset::As¦¦" type="¦¦Asset::Type¦¦" '.concho('crossorigin="anonymous" ',  ['Asset::As`===`font', 'Asset::As`===`fontt'], [$PageManifest], 'OR').'/>'."\n\n", [$PageManifest], []);
+echo concho('<p data-type="¦¦1::Asset::Type¦¦" data-test="Attribute ¦¦0::Global::Test::Path¦¦">Element ¦¦0::Global::Test::Path¦¦</p>', [$SiteManifest, $PageManifest], []);
 ```
 ________
 
@@ -146,8 +146,8 @@ There are **three** functions which make up **Concho**:
  ```
  function concho($Markup, $Data_Sources, $Conditions = [], $Logic = 'AND') {
   
-  if (strpos($Markup, '|') !== FALSE) {
-    $Markup = explode('|', $Markup);
+  if (strpos($Markup, '¦¦') !== FALSE) {
+    $Markup = explode('¦¦', $Markup);
     $Markup = conchoParse($Markup, $Data_Sources);
     $Markup = implode('', $Markup);
     $Markup = str_replace('˸˸˸', ':::', $Markup);
@@ -311,8 +311,8 @@ if (($Document_Build['Resource_Hints']['Preload']['Active'] === TRUE) {
 ```
 // LINK PRELOADS
 foreach ($Document_Build['Resource_Hints']['Preload']['Resources'] as $Resource_Index => $Resource) { 
-  echo concho('<link rel="preload" href="|0::URL|" as="|0::As|" type="|0::Type|" />'."\n", [$Resource, $Document_Build], ['Resource_Hints::Preload::Active', '0::As !== font']);
-  echo concho('<link rel="preload" href="|0::URL|" as="|0::As|" type="|0::Type|" crossorigin="anonymous" />'."\n", [$Resource, $Document_Build], ['Resource_Hints::Preload::Active', '0::As === font']);
+  echo concho('<link rel="preload" href="¦¦0::URL¦¦" as="¦¦0::As¦¦" type="¦¦0::Type¦¦" />'."\n", [$Resource, $Document_Build], ['Resource_Hints::Preload::Active', '0::As !== font']);
+  echo concho('<link rel="preload" href="¦¦0::URL¦¦" as="¦¦0::As¦¦" type="¦¦0::Type¦¦" crossorigin="anonymous" />'."\n", [$Resource, $Document_Build], ['Resource_Hints::Preload::Active', '0::As === font']);
 }
 ```
 _______
