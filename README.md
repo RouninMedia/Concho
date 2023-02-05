@@ -159,6 +159,8 @@ There are **three** functions which make up **Concho**:
   // CYCLE THROUGH BOOLEAN CONDITIONS
   for ($i = 0; $i < count($Conditions); $i++) {
 
+    if (is_null($Conditions[$i])) continue;
+
     // CONDITION IS AN ASHIVA CONSOLE MESSAGE
     if (strpos($Conditions[$i], '<!-- Ashiva Console:') !== FALSE) {
       
@@ -191,6 +193,8 @@ There are **three** functions which make up **Concho**:
  function conchoParse($Pieces, $Data_Sources, $ParseConditions = FALSE) {
 
   for ($i = 0; $i < count($Pieces); $i++) {
+
+    if (is_null($Pieces[$i])) continue;
 
     // PARSE COMPARISON EQUATION CONDITIONS
     $Equation_Parts = explode(' ', $Pieces[$i]);
